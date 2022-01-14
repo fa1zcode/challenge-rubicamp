@@ -1,12 +1,8 @@
-let word = 'Ayam'
 const vowel = ('AEIOUaeiou')
+let sentence = 'ibu pergi ke pasar bersama aku'
+let kalimat = sentence.split(' ')
+//console.log(kalimat[0][0])
 
-if (vowel.match(word[0])) {
-    console.log('well done')
-} else console.log('try again')
-
-console.log (word.slice(1,word.length) + (word.charAt(0)) + 'nyo')
-
-console.log(word[0])
-
-   
+for (i=0 ; i<kalimat.length ; i++){
+    console.log(kalimat[i])
+}
