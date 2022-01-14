@@ -1,7 +1,12 @@
+let word = 'Ayam'
+const vowel = ('AEIOUaeiou')
 
-    for (let i = 3 ; i<=30 ; i+= 3){
-        if ( i %5 === 0 && i %6 === 0){console.log('KASKUS')}
-        else if ( i %5 === 0){console.log('KAS')}
-        else if ( i %6 === 0){console.log('KUS')}
-        else console.log(i)}
+if (vowel.match(word[0])) {
+    console.log('well done')
+} else console.log('try again')
+
+console.log (word.slice(1,word.length) + (word.charAt(0)) + 'nyo')
+
+console.log(word[0])
+
    
