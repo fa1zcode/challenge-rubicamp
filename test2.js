@@ -1,15 +1,8 @@
-function stringManipulation(sentence) {
-    const vowel = ('AEIOUaeiou')
-    let kalimat = sentence.split(' ')
-    let manipulated = ''
+let num = 12345
+let num2 = 456
 
 
-    for (i = 0; i < kalimat.length; i++) {
-        if (vowel.match((kalimat[i][0]))) { manipulated = (kalimat[i]) }
-        else manipulated = (kalimat[i].slice(1, kalimat[i].length) + kalimat[i][0] + 'nyo')
- 
-    } console.log(manipulated)
-}
+let newArr = Array.from(num.toString())
+// console.log(newArr[0])
 
-
-stringManipulation('ibu pergi ke pasar bersama aku')
+console.log(newArr.length)
