@@ -1,13 +1,16 @@
-function weirdMultiply (sentence){
+function weirdMultiply(sentence) {
 
     let str = sentence.toString()
     let sum = 1
 
-    for (i=0 ; i<str.length ; i++){
-        sum = sum * str[i]
-    } if (sum < 10){
+
+    for (i = 0; i < str.length; i++) {
+        sum *= str[i]
+    } if (sum < 10) {
         return sum
-    } else return weirdMultiply(sum)
+    }
+    else return weirdMultiply(sum)
+
 
 }
 console.log(weirdMultiply(39))

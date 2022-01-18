@@ -1,8 +1,7 @@
-let num = 12345
-let num2 = 456
+for (i=0; i<10 ; i++){
+    for (j=0; j<10 ; j++){
+        console.log([i,j])
+    }
+}
 
 
-let newArr = Array.from(num.toString())
-// console.log(newArr[0])
-
-console.log(newArr.length)
