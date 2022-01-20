@@ -1,12 +1,18 @@
-let n = 1000
+function cekPrime(num){
 
- let kamus = [[1000,'M'],[900,'CM'],[500,'D'],[400,'CD'],[100,'C'],[90,'XC'],
-                [50,'L'],[40,'XL'],[10,'X'],[9,'IX'],[4,'IV'],[1,'I'],]                
+    
+    for(i=2 ; i<num ; i++){
+        if (num % i == 0 || num<2){
+            return 'not prime'
+        } 
+    } return 'prime'
+}
 
- for (i=0 ; i<kamus.length ; i++){
-     console.log(kamus[i][0])
- }
+console.log(cekPrime(1))
+console.log(cekPrime(7))
+console.log(cekPrime(9))
+console.log(cekPrime(13))
+console.log(cekPrime(15))
 
 
-//  let kamus = [[1,'I'], [4,'IV'], [9,'IX'], [10,'X'] ,[40,'XL'], [50,'L'], [90,'XC'],
-//                  [100,'C'], [400,'CD'], [500,'D'], [900,'CM'], [1000,'M']]
+
