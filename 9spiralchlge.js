@@ -7,28 +7,28 @@ function spiral (param1){
 
     for(i=0 ;i<param1 ; i++){ //first row
         firstRow.push(i)
-    } console.log(firstRow)
+    } firstRow
 
 
     let lastFirstRow = firstRow[firstRow.length -1]
 
     for(i=lastFirstRow ; i<param1*param1 ; i+=param1){
         rightColumn.push(i)
-    } console.log(rightColumn)
+    } rightColumn
 
 
     let lastRightColumn = rightColumn[rightColumn.length -1]
 
     for(i=lastRightColumn ; i>=param1*(param1-1) ; i--){
         bottomRow.push(i)
-    } console.log(bottomRow)
+    } bottomRow
 
 
     let lastBottomRow = bottomRow[bottomRow.length -1]
 
     for(i=lastBottomRow ; i>=param1 ; i-=param1){
         leftColumn.push(i)
-    } console.log(leftColumn)
+    } leftColumn
 
     
     let arr = firstRow.concat(rightColumn,bottomRow,leftColumn)
@@ -37,5 +37,5 @@ function spiral (param1){
 }
 
 spiral(5)
-spiral(6)
-spiral(7)
+// spiral(6)
+// spiral(7)
