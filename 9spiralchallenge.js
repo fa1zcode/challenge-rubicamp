@@ -9,19 +9,30 @@ function spiral (param1){
           matrix[i][j] = count;
           count++;
         }
-      } //console.log(matrix)
+      } console.log(matrix)
     
     let arr = []
     let x = 0 // index array
     let y = 0 // index element
-    let row = param1
-    let column = 0
+    let top = param1
+    let bottom = 0
 
 
     while(arr.length<param1*param1){
-      for (y=0 ; y<row ; y++){
+      for (; y<top ; y++){
         arr.push(matrix[x][y])
-      } break
+      } 
+      x++
+      y--
+      for (; x<top ; x++){
+        arr.push(matrix[x][y])
+      }
+      y--
+      x--
+      for (;y >= bottom ; y--){
+        arr.push(matrix[x][y])
+      }
+      break
 
       
     } console.log(arr)
