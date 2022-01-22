@@ -1,12 +1,11 @@
-function spiral (param1){
+let param1 = 7
+let matrix = []
+let count = 0
 
-    let arr = []
-    
-    for (i=0 ; i<param1*param1 ; i+=5){
-        arr.push(i)
-    }  console.log(arr)
-}
-
-spiral(5)
-// spiral(6)
-// spiral(7)
+for (let i = 0; i < param1; i++) {
+    matrix[i] = [];
+    for (let j = 0; j < param1; j++) {
+      matrix[i][j] = count;
+      count++;
+    }
+  }console.log(matrix[0][1])
