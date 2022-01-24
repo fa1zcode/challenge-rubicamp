@@ -1,9 +1,9 @@
 function sum() {
 
-    let jumlah = 0
+    let jumlah = 0                           // starting sum from 0
     
-    for (i = 0; i < arguments.length; i++) {
-        jumlah += Number(arguments[i])
+    for (i = 0; i < arguments.length; i++) { // looping all arguments
+        jumlah += Number(arguments[i])       // add all arguments to jumlah
     }
     console.log(jumlah);
 }
