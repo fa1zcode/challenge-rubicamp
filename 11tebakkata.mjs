@@ -26,11 +26,13 @@ rl.on('line', (answer) => {
         index++
         if (index < soal.length) {
             console.log(`Pertanyaan: ${soal[index].definition}`)
-        } else {
+        }
+        else {
             console.log('Hore Anda Menang!')
             rl.close()
         }
-    } else {
+    }
+    else {
         console.log('Wkwkwk, Anda kurang beruntung!')
     }
 
