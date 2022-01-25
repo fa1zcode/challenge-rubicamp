@@ -5,7 +5,7 @@ function sentenceManipulation(sentence) {
     let berubahJadi = []
 
 
-    for (i = 0; i < kalimat.length; i++) {
+    for (let i = 0; i < kalimat.length; i++) {
         if (vowel.match((kalimat[i][0]))) {
             berubahJadi.push(kalimat[i])
         } else berubahJadi.push(kalimat[i].slice(1, kalimat[i].length)
@@ -17,9 +17,7 @@ function sentenceManipulation(sentence) {
 
 
 
-
-
-const readline = require('readline');
+import readline from'readline';
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
@@ -29,7 +27,7 @@ const rl = readline.createInterface({
 rl.prompt();
 
 rl.on('line', (line) => {
-  console.log('hasil konversi :'+sentenceManipulation(line));
+  console.log(`hasil konversi :${sentenceManipulation(line)}`);
   
   rl.prompt();
 }).on('close', () => {
