@@ -19,26 +19,20 @@ function sentenceManipulation(sentence) {
 
 
 
-const readline = import('readline');
+const readline = require('readline');
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
-  prompt: 'OHAI> '
+  prompt: 'tulis kalimatmu disini > '
 });
 
 rl.prompt();
 
 rl.on('line', (line) => {
-  switch (line.trim()) {
-    case 'hello':
-      console.log('world!');
-      break;
-    default:
-      console.log(`Say what? I might have heard '${line.trim()}'`);
-      break;
-  }
+  console.log('hasil konversi :'+sentenceManipulation(line));
+  
   rl.prompt();
 }).on('close', () => {
-  console.log('Have a great day!');
+  console.log('Good bye!');
   process.exit(0);
 });
