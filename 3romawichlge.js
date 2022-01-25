@@ -5,10 +5,10 @@ function romawi(n) {
     [50, 'L'], [40, 'XL'], [10, 'X'], [9, 'IX'], [5, 'V'], [4, 'IV'], [1, 'I']]
 
 
-    for (i = 0; i < kamus.length; i++) {
-        while (kamus[i][0] <= n) {
-            roman = roman + kamus[i][1]
-            n = n - kamus[i][0]
+    for (i = 0; i < kamus.length; i++) { //loop kamus
+        while (kamus[i][0] <= n) {      //
+            roman += kamus[i][1]       //print roman number
+            n -= kamus[i][0]          //decrease n, loop the remaining number
         }
     } return roman
 }
