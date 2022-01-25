@@ -14,20 +14,20 @@ console.log('Selamat datang di permainan Tebak Kata, silahkan isi dengan jawaban
 var soal = JSON.parse(fs.readFileSync('data.json', 'utf-8'));
 //console.log(soal)
 let index = 0
-console.log(soal[index].definition)
+console.log(`Pertanyaan: ${soal[index].definition}`)
 
 
 rl.prompt();
 
 rl.on('line', (answer) => {
-    console.log(answer);
+    //console.log(answer);
     if (answer == soal[index].term) {
         console.log('Selamat Anda Benar!')
         index++
         if (index < soal.length) {
-            console.log(soal[index].definition)
+            console.log(`Pertanyaan: ${soal[index].definition}`)
         } else {
-            console.log('hore anda menang')
+            console.log('Hore Anda Menang!')
             rl.close()
         }
     } else {
