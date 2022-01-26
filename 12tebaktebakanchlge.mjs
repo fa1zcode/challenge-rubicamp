@@ -1,3 +1,8 @@
+if (!process.argv[2]){
+    console.log('Tolong sertakan inputan soalnya')
+    console.log('Misalnya \'node solution.js data.json\'')
+    process.exit(1);
+}
 import readline from 'readline';
 import fs from 'fs'
 
@@ -5,13 +10,15 @@ import fs from 'fs'
 const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout,
-    prompt: 'Tebakan: '
+    prompt: 'Jawaban: '
 });
-console.log('Selamat datang di permainan Tebak Kata, silahkan isi dengan jawaban yang benar ya!')
+console.log('Selamat datang di permainan Tebak-tebakan, kamu akan diberikan pertanyaan dari file ini \'data.json\'.')
+console.log('Untuk bermain, jawablah dengan jawaban yang sesuai')
+console.log('Gunakan \'skip\' untuk menangguhkan pertanyaannya, dan di akhir pertanyaan akan ditanyakan lagi. \n')
 
 
 
-var soal = JSON.parse(fs.readFileSync('data.json', 'utf-8'));
+var soal = JSON.parse(fs.readFileSync(process.argv[2], 'utf-8'));
 //console.log(soal)
 let index = 0
 console.log(`Pertanyaan: ${soal[index].definition}`)
@@ -29,20 +36,20 @@ rl.on('line', (answer) => {
         console.log(`Pertanyaan: ${soal[index].definition}`)
     }
     else if (answer == soal[index].term) {
-        console.log('Selamat Anda Benar!')
+        console.log('Anda Beruntung!\n')
         counter = 0
         index++
         if (index < soal.length) {
             console.log(`Pertanyaan: ${soal[index].definition}`)
         }
         else {
-            console.log('Hore Anda Menang!')
+            console.log('Anda Berhasil!\n')
             rl.close()
         }
     } 
     else {
         counter++
-        console.log(`anda salah ${counter} kali`)
+        console.log(`Anda kurang beruntung! anda telah salah ${counter} kali, silahkan coba lagi`)
 
     }
 
