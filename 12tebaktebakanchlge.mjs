@@ -21,7 +21,7 @@ console.log('Gunakan \'skip\' untuk menangguhkan pertanyaannya, dan di akhir per
 var soal = JSON.parse(fs.readFileSync(process.argv[2], 'utf-8'));
 //console.log(soal)
 let index = 0
-console.log(`Pertanyaan: ${soal[index].definition}`)
+console.log(`\nPertanyaan: ${soal[index].definition}`)
 
 var counter = 0
 
@@ -33,23 +33,23 @@ rl.on('line', (answer) => {
     if (answer == 'skip') {
         soal.push(soal[index])
         index++
-        console.log(`Pertanyaan: ${soal[index].definition}`)
+        console.log(`\nPertanyaan: ${soal[index].definition}`)
     }
     else if (answer == soal[index].term) {
-        console.log('Anda Beruntung!\n')
+        console.log('\nAnda Beruntung!')
         counter = 0
         index++
         if (index < soal.length) {
-            console.log(`Pertanyaan: ${soal[index].definition}`)
+            console.log(`\nPertanyaan: ${soal[index].definition}`)
         }
         else {
-            console.log('Anda Berhasil!\n')
+            console.log('\nAnda Berhasil!')
             rl.close()
         }
     } 
     else {
         counter++
-        console.log(`Anda kurang beruntung! anda telah salah ${counter} kali, silahkan coba lagi`)
+        console.log(`\n Anda kurang beruntung! anda telah salah ${counter} kali, silahkan coba lagi`)
 
     }
 
