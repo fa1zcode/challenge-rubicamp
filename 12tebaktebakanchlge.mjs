@@ -23,8 +23,14 @@ rl.prompt();
 rl.on('line', (answer) => {
 
     //console.log(answer);
-    if (answer == soal[index].term) {
+    if (answer == 'skip') {
+        soal.push(soal[index])
+        index++
+        console.log(`Pertanyaan: ${soal[index].definition}`)
+    }
+    else if (answer == soal[index].term) {
         console.log('Selamat Anda Benar!')
+        counter = 0
         index++
         if (index < soal.length) {
             console.log(`Pertanyaan: ${soal[index].definition}`)
@@ -33,10 +39,7 @@ rl.on('line', (answer) => {
             console.log('Hore Anda Menang!')
             rl.close()
         }
-    } else if (answer == 'skip'){
-        console.log(`Pertanyaan: ${soal[index++].definition}`)
-    }
-    
+    } 
     else {
         counter++
         console.log(`anda salah ${counter} kali`)
