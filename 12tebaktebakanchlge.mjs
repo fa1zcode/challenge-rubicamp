@@ -1,4 +1,4 @@
-if (!process.argv[2]){
+if (!process.argv[2]) {
     console.log('Tolong sertakan inputan soalnya')
     console.log('Misalnya \'node solution.js data.json\'')
     process.exit(1);
@@ -46,7 +46,7 @@ rl.on('line', (answer) => {
             console.log('\nAnda Berhasil!')
             rl.close()
         }
-    } 
+    }
     else {
         counter++
         console.log(`\n Anda kurang beruntung! anda telah salah ${counter} kali, silahkan coba lagi`)
