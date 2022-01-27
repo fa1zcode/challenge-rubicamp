@@ -26,15 +26,27 @@ switch (param[2]) {
         //console.log(todo)
         fs.writeFileSync('todo.json', JSON.stringify(todo), 'utf-8')
         break;
+
     case 'delete':
         todo.splice(param[3] - 1, 1)
         //console.log(todo)
         fs.writeFileSync('todo.json', JSON.stringify(todo), 'utf-8')
         break;
+
     case 'complete':
-        
-        //fs.writeFileSync('todo.json', JSON.stringify(todo), 'utf-8')
+        let complete = param[3] - 1
+        todo[complete].status = true
+
+        fs.writeFileSync('todo.json', JSON.stringify(todo), 'utf-8')
         break;
+
+    case 'uncomplete':
+        let uncomplete = param[3] - 1
+        todo[uncomplete].status = false
+
+        fs.writeFileSync('todo.json', JSON.stringify(todo), 'utf-8')
+        break;
+        
     default:
         console.log('>>>JS TODO<<<')
         console.log('$ node todo.mjs <command>')
