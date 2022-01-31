@@ -1,0 +1,48 @@
+[
+   {
+      "tugas": "makan",
+      "status": true,
+      "tag": [
+         "istirahat"
+      ]
+   },
+   {
+      "tugas": "ngoding",
+      "status": true,
+      "tag": []
+   },
+   {
+      "tugas": "mandi",
+      "status": true,
+      "tag": [
+         [
+            "refreshing"
+         ]
+      ]
+   },
+   {
+      "tugas": "main futsal",
+      "status": false,
+      "tag": [
+         "olahraga",
+         [
+            "refreshing"
+         ]
+      ]
+   },
+   {
+      "tugas": "tidur siang",
+      "status": false,
+      "tag": [
+         "istirahat"
+      ]
+   },
+   {
+      "tugas": "push-up",
+      "status": false,
+      "tag": [
+         "olahraga",
+         "refreshing"
+      ]
+   }
+]

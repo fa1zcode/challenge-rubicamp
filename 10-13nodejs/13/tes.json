@@ -1,0 +1,17 @@
+[
+    {
+        "tugas": "makan",
+        "status": false,
+        "tag" : []
+    },
+    {
+        "tugas": "ngoding",
+        "status": false,
+        "tag" : []
+    },
+    {
+        "tugas": "mandi",
+        "status": false,
+        "tag" : []
+    }
+]
