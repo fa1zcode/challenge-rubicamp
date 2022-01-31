@@ -16,12 +16,11 @@ switch (param[2]) {
         break;
 
     case 'add':
-        let baru = param.slice(3, param.length)
-        let tugasBaru = baru.join(' ')
+        let tugasBaru = param.slice(3, param.length).join(' ')
         let newTodo = {
             "tugas": tugasBaru,
             "status": false,
-            "tag": []
+            "tags": []
         }
         todo.push(newTodo)
         console.log(`"${tugasBaru}" telah ditambahkan.`)
@@ -47,14 +46,13 @@ switch (param[2]) {
         break;
 
     case 'uncomplete':
-
         todo[taskId].status = false
         console.log(`'${todo[taskId].tugas}' status selesai dibatalkan`)
         fs.writeFileSync('todo.json', JSON.stringify(todo, null, 3), 'utf-8')
 
         break;
 
-    case 'outstanding':
+    case 'list:outstanding':
         console.log('Daftar Pekerjaan')
         if (param[3] == 'asc') {
             todo.forEach((item, index) => {
@@ -71,7 +69,7 @@ switch (param[2]) {
 
         break;
 
-    case 'completed':
+    case 'list:completed':
         console.log('Daftar Pekerjaan')
         if (param[3] == 'asc') {
             todo.forEach((item, index) => {
@@ -90,14 +88,15 @@ switch (param[2]) {
 
     case 'tag':
         let tag = param.slice(4, param.length)
-        console.log(tag)
-        tag.forEach((item,index) => {
-            
+        //console.log(tag)
+        tag.forEach((item, index) => {
+            todo[taskId].tags.push(tag[index])
         });
+        //console.log(todo[taskId])
         //todo[taskId].tag.push(tag)
         console.log(`'${tag}' telah ditambahkan ke daftar '${todo[taskId].tugas}'`)
 
-        //fs.writeFileSync('todo.json', JSON.stringify(todo, null, 3), 'utf-8')
+        fs.writeFileSync('todo.json', JSON.stringify(todo, null, 3), 'utf-8')
 
         break;
 
@@ -118,17 +117,16 @@ switch (param[2]) {
             console.log('$ node todo.mjs filter:<tag_name>')
         }
         else {
-            let inputFilter = param[2].split(':')
-            let filter = inputFilter[1]
+            console.log('Daftar Pekerjaan')
+            let filter = param[2].split(':')[1]
             //console.log(filter)
             todo.forEach((item, index) => {
-                if (todo[index].tag.includes(filter)) {
+                if (todo[index].tags.includes(filter)) {
                     console.log(`${index + 1}. ${item.status ? '[x]' : '[ ]'} ${item.tugas}`)
                 }
             })
         };
 
         break;
-
 
 }

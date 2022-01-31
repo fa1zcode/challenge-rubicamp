@@ -2,47 +2,59 @@
    {
       "tugas": "makan",
       "status": true,
-      "tag": [
+      "tags": [
          "istirahat"
       ]
    },
    {
       "tugas": "ngoding",
       "status": true,
-      "tag": []
+      "tags": [
+         "belajar",
+         "javascript",
+         "html",
+         "css",
+         "rubicamp",
+         "codecademy"
+      ]
    },
    {
       "tugas": "mandi",
       "status": true,
-      "tag": [
-         [
-            "refreshing"
-         ]
+      "tags": [
+         "refreshing",
+         "bersih-bersih"
       ]
    },
    {
       "tugas": "main futsal",
-      "status": false,
-      "tag": [
-         "olahraga",
-         [
-            "refreshing"
-         ]
+      "status": true,
+      "tags": [
+         "rubicamp",
+         "refreshing",
+         "olahraga"
       ]
    },
    {
       "tugas": "tidur siang",
       "status": false,
-      "tag": [
+      "tags": [
          "istirahat"
       ]
    },
    {
       "tugas": "push-up",
       "status": false,
-      "tag": [
-         "olahraga",
-         "refreshing"
+      "tags": [
+         "refreshing",
+         "olahraga"
+      ]
+   },
+   {
+      "tugas": "laundry baju",
+      "status": false,
+      "tags": [
+         "bersih-bersih"
       ]
    }
 ]
