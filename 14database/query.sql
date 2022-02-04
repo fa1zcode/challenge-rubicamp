@@ -24,14 +24,6 @@ CREATE TABLE matakuliah(
 insert into matakuliah(kodeMataKuliah, nama, sks)
 values('MK001', 'Aerodrome', '4'),
     ('MK002', 'Emergency Procedure', '2');
-insert into kontrak(nim, kodeMataKuliah, nip)
-values('001', 'MK001', 'D001');
-insert into kontrak(nim, kodeMataKuliah, nip)
-values('001', 'MK002', 'D003');
-insert into kontrak(nim, kodeMataKuliah, nip)
-values('002', 'MK002', 'D002');
-insert into kontrak(nim, kodeMataKuliah, nip)
-values('002', 'MK001', 'D001');
 CREATE TABLE dosen(
     nip varchar primary key not null,
     nama varchar
@@ -48,6 +40,14 @@ CREATE TABLE kontrak (
     FOREIGN KEY (nim) REFERENCES mahasiswa (nim),
     FOREIGN KEY (kodeMataKuliah) REFERENCES matakuliah (kodeMataKuliah) FOREIGN KEY (nip) REFERENCES dosen (nip)
 );
+insert into kontrak(nim, kodeMataKuliah, nip)
+values('001', 'MK001', 'D001');
+insert into kontrak(nim, kodeMataKuliah, nip)
+values('001', 'MK002', 'D003');
+insert into kontrak(nim, kodeMataKuliah, nip)
+values('002', 'MK002', 'D002');
+insert into kontrak(nim, kodeMataKuliah, nip)
+values('002', 'MK001', 'D001');
 select mahasiswa.nama,
     matakuliah.nama,
     dosen.nama
