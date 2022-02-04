@@ -5,6 +5,8 @@ CREATE TABLE jurusan(
 insert into jurusan(kodeJurusan, namaJurusan)
 values('J001', 'ATC Procedural'),
     ('J002', 'ATC Surveillance');
+    
+
 CREATE TABLE mahasiswa (
     nim varchar PRIMARY KEY,
     nama TEXT NOT NULL,
@@ -16,6 +18,8 @@ insert into mahasiswa(nim, nama, alamat, jurusan)
 values('001', 'Faiz', 'Tangerang', 'J002');
 insert into mahasiswa(nim, nama, alamat, jurusan)
 values('002', 'Aad', 'Lampung', 'J002');
+
+
 CREATE TABLE matakuliah(
     kodeMataKuliah varchar primary key not null,
     nama varchar,
@@ -24,6 +28,8 @@ CREATE TABLE matakuliah(
 insert into matakuliah(kodeMataKuliah, nama, sks)
 values('MK001', 'Aerodrome', '4'),
     ('MK002', 'Emergency Procedure', '2');
+
+
 CREATE TABLE dosen(
     nip varchar primary key not null,
     nama varchar
@@ -32,6 +38,8 @@ insert into dosen(nip, nama)
 values('D001', 'Djoko'),
     ('D002', 'Aminarno'),
     ('D003', 'Haryanto');
+
+
 CREATE TABLE kontrak (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     nim varchar NOT NULL,
@@ -48,6 +56,8 @@ insert into kontrak(nim, kodeMataKuliah, nip)
 values('002', 'MK002', 'D002');
 insert into kontrak(nim, kodeMataKuliah, nip)
 values('002', 'MK001', 'D001');
+
+
 select mahasiswa.nama,
     matakuliah.nama,
     dosen.nama
