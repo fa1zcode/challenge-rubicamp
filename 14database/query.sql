@@ -65,3 +65,13 @@ from mahasiswa
     join kontrak on mahasiswa.nim = kontrak.nim
     join matakuliah on kontrak.kodeMataKuliah = matakuliah.kodeMataKuliah
     join dosen on kontrak.nip = dosen.nip;
+
+
+
+
+CREATE TABLE tanggal(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    tanggal date
+);
+insert into tanggal(tanggal)
+values('1995-09-24'),('1995-09-24');
