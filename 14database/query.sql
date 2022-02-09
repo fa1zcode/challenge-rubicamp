@@ -40,7 +40,7 @@ values('003', 'Faisal', 'Cianjur', 'J002','2002-10-15'),
 CREATE TABLE matakuliah(
     kodeMataKuliah varchar primary key not null,
     nama varchar,
-    sks varchar
+    sks INTEGER
 );
 insert into matakuliah(kodeMataKuliah, nama, sks)
 values('MK001', 'Aerodrome', '4'),
@@ -119,21 +119,82 @@ values('001', 'MK003', 'D002', 'A'),
 ('006', 'MK002', 'D002', 'A')
 ;
 
-select mahasiswa.nama,
-    matakuliah.nama,
-    dosen.nama
-from mahasiswa
-    join kontrak on mahasiswa.nim = kontrak.nim
-    join matakuliah on kontrak.kodeMataKuliah = matakuliah.kodeMataKuliah
-    join dosen on kontrak.nip = dosen.nip;
-
-
-
-
-
-SELECT mahasiswa.nama
-, strftime ('%Y' , date('now')) - strftime ('%Y' , date(tanggal_lahir)) AS 'umur'
+-- 1. Menampilkan nama mahasiswa beserta jurusannya DONE
+SELECT nim,nama,alamat,jurusan.namaJurusan
 FROM mahasiswa
+    join jurusan on mahasiswa.jurusan = jurusan.kodeJurusan
 ;
+
+-- 2. Menampilkan mahasiswa dengan umur dibawah 20 tahun DONE
+SELECT mahasiswa.nama,
+CASE
+    WHEN (strftime('%M', 'now') > strftime('%M', tanggal_lahir)) THEN (strftime('%Y', 'now') - strftime('%Y', tanggal_lahir)) 
+    WHEN (strftime('%M', 'now') = strftime('%M', tanggal_lahir)) THEN 
+        CASE
+            WHEN (strftime('%D', 'now') >= strftime('%D', tanggal_lahir)) THEN (strftime('%Y', 'now') - strftime('%Y', tanggal_lahir))
+            ELSE (strftime('%Y', 'now') - strftime('%Y', tanggal_lahir)) - 1
+        END
+    WHEN (strftime('%M', 'now') < strftime('%M', tanggal_lahir)) THEN (strftime('%Y', 'now') - strftime('%Y', tanggal_lahir)) - 1
+END AS 'Umur'
+FROM mahasiswa
+WHERE Umur < 20
+;
+
+-- 3. Menampilkan mahasiswa dengan nilai B keatas
+
+
+-- 4. Menampilkan mahasiswa yang memiliki jumlah SKS lebih dari 10 DONE
+SELECT
+   mahasiswa.nama,
+   SUM(matakuliah.sks) AS jumlah_sks
+FROM
+   kontrak
+JOIN matakuliah ON kontrak.kodeMataKuliah = matakuliah.kodeMataKuliah
+JOIN mahasiswa ON kontrak.nim= mahasiswa.nim
+GROUP BY
+   mahasiswa.nama
+HAVING SUM(matakuliah.sks) > 10
+;
+
+-- 5. Menampilkan nama mahasiswa yang mengontrak mata kuliah 'data mining' DONE
+SELECT mahasiswa.nama,
+    matakuliah.nama as matakuliah
+FROM kontrak
+    join mahasiswa on mahasiswa.nim = kontrak.nim
+    join matakuliah on kontrak.kodeMataKuliah = matakuliah.kodeMataKuliah
+    where kontrak.kodeMataKuliah = 'MK003'
+;
+
+-- 6. Menampilkan jumlah mahasiswa untuk setiap dosen DONE
+SELECT dosen.nama,
+    count(kontrak.id) AS jumlah_mahasiswa
+FROM kontrak
+    join dosen on dosen.nip = kontrak.nip
+GROUP BY kontrak.nip
+;
+
+
+-- 7. Mengurutkan mahasiswa berdasarkan umurnya DONE
+SELECT mahasiswa.nama,
+CASE
+    WHEN (strftime('%M', 'now') > strftime('%M', tanggal_lahir)) THEN (strftime('%Y', 'now') - strftime('%Y', tanggal_lahir)) 
+    WHEN (strftime('%M', 'now') = strftime('%M', tanggal_lahir)) THEN 
+        CASE
+            WHEN (strftime('%D', 'now') >= strftime('%D', tanggal_lahir)) THEN (strftime('%Y', 'now') - strftime('%Y', tanggal_lahir))
+            ELSE (strftime('%Y', 'now') - strftime('%Y', tanggal_lahir)) - 1
+        END
+    WHEN (strftime('%M', 'now') < strftime('%M', tanggal_lahir)) THEN (strftime('%Y', 'now') - strftime('%Y', tanggal_lahir)) - 1
+END AS 'Umur'
+FROM mahasiswa
+ORDER BY tanggal_lahir ASC
+;
+
+
+-- 8. Menampilkan kontrak mata kuliah dengan nilai D dan E, serta tampilkan data maahasiswa jurusan dan dosen secara lengkap
+
+
+
+
+
 
 
