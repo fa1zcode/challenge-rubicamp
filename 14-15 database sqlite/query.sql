@@ -62,7 +62,10 @@ INSERT INTO dosen(nip, nama)
 VALUES('D001', 'Djoko'),
     ('D002', 'Aminarno'),
     ('D003', 'Haryanto')
-    ;
+;
+INSERT INTO dosen(nip, nama)
+VALUES('D004', 'Nunuk')
+;
 
 
 CREATE TABLE kontrak (
@@ -121,7 +124,13 @@ VALUES('001', 'MK003', 'D002', 'A'),
     ('006', 'MK004', 'D003', 'A'),
     ('006', 'MK005', 'D001', 'D'),
     ('006', 'MK002', 'D002', 'A')
-    ;
+;
+INSERT INTO kontrak(nim, kodeMataKuliah, nip, nilai)
+VALUES('003', 'MK005', 'D004', 'A')
+;
+INSERT INTO kontrak(nim, kodeMataKuliah, nip, nilai)
+VALUES('003', 'MK006', 'D004', 'A')
+;
 
 
 
@@ -201,10 +210,12 @@ WHERE kontrak.kodeMataKuliah = 'MK003';
 
 -- 6. Menampilkan jumlah mahasiswa untuk setiap dosen 
 SELECT dosen.nama,
-    count(kontrak.id) AS jumlah_mahasiswa
+count (DISTINCT kontrak.nim)
 FROM kontrak
     JOIN dosen ON dosen.nip = kontrak.nip
-GROUP BY kontrak.nip;
+    JOIN mahasiswa ON mahasiswa.nim = kontrak.nim
+    GROUP BY kontrak.nip
+;
 
 
 -- 7. Mengurutkan mahasiswa berdasarkan umurnya DONE
@@ -251,3 +262,8 @@ FROM kontrak
     JOIN dosen ON kontrak.nip = dosen.nip
 WHERE nilai = 'D'
     OR nilai = 'E';
+
+
+
+
+
