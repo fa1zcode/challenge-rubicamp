@@ -128,7 +128,8 @@ VALUES('001', 'MK003', 'D002', 'A'),
 SELECT nim,
     nama,
     alamat,
-    jurusan.namaJurusan
+    tanggal_lahir,
+    jurusan.namaJurusan AS Jurusan
 FROM mahasiswa
     JOIN jurusan ON mahasiswa.jurusan = jurusan.kodeJurusan;
 
@@ -175,8 +176,8 @@ FROM kontrak
     JOIN matakuliah ON kontrak.kodeMataKuliah = matakuliah.kodeMataKuliah
     JOIN dosen ON kontrak.nip = dosen.nip
 WHERE nilai = 'A'
-    OR nilai = 'B';
-
+    OR nilai = 'B'
+ORDER BY kontrak.nim ASC;
 
 -- 4. Menampilkan mahasiswa yang memiliki jumlah SKS lebih dari 10 DONE
 SELECT mahasiswa.nama,
@@ -194,7 +195,7 @@ SELECT mahasiswa.nama,
 FROM kontrak
     JOIN mahasiswa ON mahasiswa.nim = kontrak.nim
     JOIN matakuliah ON kontrak.kodeMataKuliah = matakuliah.kodeMataKuliah
-where kontrak.kodeMataKuliah = 'MK003';
+WHERE kontrak.kodeMataKuliah = 'MK003';
 
 
 -- 6. Menampilkan jumlah mahasiswa untuk setiap dosen 
