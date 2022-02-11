@@ -71,7 +71,8 @@ CREATE TABLE kontrak (
     kodeMataKuliah VARCHAR NOT NULL,
     nip VARCHAR NOT NULL,
     FOREIGN KEY (nim) REFERENCES mahasiswa (nim),
-    FOREIGN KEY (kodeMataKuliah) REFERENCES matakuliah (kodeMataKuliah) FOREIGN KEY (nip) REFERENCES dosen (nip)
+    FOREIGN KEY (kodeMataKuliah) REFERENCES matakuliah (kodeMataKuliah) 
+    FOREIGN KEY (nip) REFERENCES dosen (nip)
 );
 INSERT INTO kontrak(nim, kodeMataKuliah, nip)
 VALUES('001', 'MK001', 'D001');
