@@ -213,7 +213,6 @@ SELECT dosen.nama,
 count (DISTINCT kontrak.nim)
 FROM kontrak
     JOIN dosen ON dosen.nip = kontrak.nip
-    JOIN mahasiswa ON mahasiswa.nim = kontrak.nim
     GROUP BY kontrak.nip
 ;
 
