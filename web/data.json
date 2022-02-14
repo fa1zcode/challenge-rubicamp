@@ -1,0 +1,18 @@
+[
+   {
+      "task": "masak",
+      "complete": false
+   },
+   {
+      "task": "makan",
+      "complete": false
+   },
+   {
+      "task": "mandi",
+      "complete": false
+   },
+   {
+      "task": "olahraga",
+      "complete": false
+   }
+]
