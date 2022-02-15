@@ -14,6 +14,7 @@
                 <th>No.</th>
                 <th>Daftar Pekerjaan</th>
                 <th>Status</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
@@ -22,6 +23,10 @@
                 <td><%= index + 1 %></td>
                 <td><%= item.task %></td>
                 <td><%= item.complete %></td>
+                <td>
+                    <a href="/edit/<%= index%>">Edit</a>
+                    <a href="/delete/<%= index%>">Delete</a>
+                </td>
             </tr>
             <% }) %>
         </tbody>

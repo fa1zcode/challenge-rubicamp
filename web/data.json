@@ -4,15 +4,19 @@
       "complete": false
    },
    {
-      "task": "makan",
-      "complete": false
+      "task": "mandi",
+      "complete": true
    },
    {
-      "task": "mandi",
+      "task": "tidur",
       "complete": false
    },
    {
       "task": "olahraga",
-      "complete": false
+      "complete": true
+   },
+   {
+      "task": "makan",
+      "complete": true
    }
 ]
